@@ -19,7 +19,7 @@ const Collapsable = ({ children }) => {
     setIsCollapsed(!isCollapsed);
   };
 
-  const value = { isCollapsed, setIsCollapsed, expand, collapse };
+  const value = { isCollapsed, expand, collapse };
   return (
     <CollapsableContext.Provider value={value}>
       {children}

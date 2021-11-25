@@ -1,15 +1,5 @@
 import Collapsable from "./components/Collapsable";
-
-const content = [
-  { displayName: "Google", url: "http://google.com" },
-  { displayName: "Ynet", url: "http://ynet.co.il" },
-  { displayName: "New York Times", url: "http://nytimes.com" },
-  { displayName: "Google", url: "http://google.com" },
-  { displayName: "Google", url: "http://google.com" },
-  { displayName: "Google", url: "http://google.com" },
-  { displayName: "Google", url: "http://google.com" },
-  { displayName: "Google", url: "http://google.com" },
-];
+import content from "./content";
 
 const CardExample = () => {
   return (

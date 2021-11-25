@@ -5,6 +5,8 @@ import React, {
   useState,
 } from "react";
 
+const LIMIT = 3;
+
 const CollapsableContext = createContext();
 
 const Collapsable = ({ children }) => {
@@ -25,16 +27,15 @@ const Collapsable = ({ children }) => {
   );
 };
 
-const CardContent = ({ content }) => {
-  const LIMIT = 3;
+const CardContent = ({ content, children }) => {
   const { isCollapsed } = useContext(CollapsableContext);
-  return content.map((item, index) => {
+  return children.map((child, index) => {
     if (isCollapsed) {
       while (LIMIT > index) {
-        return <div key={index}>{item}</div>;
+        return <div key={index}>{child}</div>;
       }
     } else {
-      return <div key={index}>{item}</div>;
+      return <div key={index}>{child}</div>;
     }
   });
 };

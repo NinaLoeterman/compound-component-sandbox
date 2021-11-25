@@ -1,4 +1,5 @@
 import Collapsable from "./components/Collapsable";
+import CardItem from "./components/CardItem";
 import content from "./content";
 
 const CardExample = () => {
@@ -7,11 +8,7 @@ const CardExample = () => {
       <Collapsable>
         <Collapsable.CardContent content={content}>
           {content.map((item, index) => {
-            return (
-              <div key={index}>
-                <a href={item.url}>{item.displayName}</a>
-              </div>
-            );
+            return <CardItem key={index} item={item} />;
           })}
         </Collapsable.CardContent>
 

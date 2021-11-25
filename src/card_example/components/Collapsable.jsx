@@ -27,7 +27,7 @@ const Collapsable = ({ children }) => {
   );
 };
 
-const CardContent = ({ content, children }) => {
+const CardContent = ({ children }) => {
   const { isCollapsed } = useContext(CollapsableContext);
   return children.map((child, index) => {
     if (isCollapsed) {

@@ -10,11 +10,14 @@ const CollapsableContext = createContext();
 const Collapsable = ({ children }) => {
   const [isCollapsed, setIsCollapsed] = useState(true);
 
-  const toggleCollapse = () => {
+  const expand = () => {
+    setIsCollapsed(!isCollapsed);
+  };
+  const collapse = () => {
     setIsCollapsed(!isCollapsed);
   };
 
-  const value = { isCollapsed, setIsCollapsed, toggleCollapse };
+  const value = { isCollapsed, setIsCollapsed, expand, collapse };
   return (
     <CollapsableContext.Provider value={value}>
       {children}
@@ -36,12 +39,17 @@ const CardContent = ({ content }) => {
   });
 };
 
-const ToggleCollapse = ({ children }) => {
-  const { toggleCollapse } = useContext(CollapsableContext);
-  return cloneElement(children, { onClick: toggleCollapse });
+const Expand = ({ children }) => {
+  const { expand, isCollapsed } = useContext(CollapsableContext);
+  return isCollapsed && cloneElement(children, { onClick: expand });
+};
+const Collapse = ({ children }) => {
+  const { collapse, isCollapsed } = useContext(CollapsableContext);
+  return !isCollapsed && cloneElement(children, { onClick: collapse });
 };
 
 Collapsable.CardContent = CardContent;
-Collapsable.ToggleCollapse = ToggleCollapse;
+Collapsable.Expand = Expand;
+Collapsable.Collapse = Collapse;
 
 export default Collapsable;

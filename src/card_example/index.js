@@ -6,7 +6,7 @@ const CardExample = () => {
   return (
     <div>
       <Card>
-        <Card.CardContent content={content}>
+        <Card.CardContent>
           {content.map((item, index) => {
             return <CardItem key={index} item={item} />;
           })}

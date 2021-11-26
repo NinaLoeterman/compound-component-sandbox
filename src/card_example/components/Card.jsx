@@ -4,6 +4,7 @@ import React, {
   useContext,
   useState,
 } from "react";
+import "./Card.css";
 
 const LIMIT = 3;
 
@@ -22,7 +23,7 @@ const Card = ({ children }) => {
   const value = { isCollapsed, expand, collapse };
   return (
     <CardContext.Provider value={value}>
-      {children}
+      <div className="card">{children}</div>
     </CardContext.Provider>
   );
 };

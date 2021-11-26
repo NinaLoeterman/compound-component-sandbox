@@ -16,6 +16,7 @@ const Card = ({ children }) => {
   const expand = () => {
     setIsCollapsed(!isCollapsed);
   };
+  
   const collapse = () => {
     setIsCollapsed(!isCollapsed);
   };
@@ -45,6 +46,7 @@ const Expand = ({ children }) => {
   const { expand, isCollapsed } = useContext(CardContext);
   return isCollapsed && cloneElement(children, { onClick: expand });
 };
+
 const Collapse = ({ children }) => {
   const { collapse, isCollapsed } = useContext(CardContext);
   return !isCollapsed && cloneElement(children, { onClick: collapse });

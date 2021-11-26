@@ -1,9 +1,10 @@
 import React from "react";
+import './Card.css';
 
 const CardItem = ({ item }) => {
   return (
     <div>
-      <a href={item.url}>{item.displayName}</a>
+      <a className='card-item' href={item.url}>{item.displayName}</a>
     </div>
   );
 };

@@ -7,9 +7,9 @@ import React, {
 
 const LIMIT = 3;
 
-const CollapsableContext = createContext();
+const CardContext = createContext();
 
-const Collapsable = ({ children }) => {
+const Card = ({ children }) => {
   const [isCollapsed, setIsCollapsed] = useState(true);
 
   const expand = () => {
@@ -21,14 +21,14 @@ const Collapsable = ({ children }) => {
 
   const value = { isCollapsed, expand, collapse };
   return (
-    <CollapsableContext.Provider value={value}>
+    <CardContext.Provider value={value}>
       {children}
-    </CollapsableContext.Provider>
+    </CardContext.Provider>
   );
 };
 
 const CardContent = ({ children }) => {
-  const { isCollapsed } = useContext(CollapsableContext);
+  const { isCollapsed } = useContext(CardContext);
   return children.map((child, index) => {
     if (isCollapsed) {
       while (LIMIT > index) {
@@ -41,16 +41,16 @@ const CardContent = ({ children }) => {
 };
 
 const Expand = ({ children }) => {
-  const { expand, isCollapsed } = useContext(CollapsableContext);
+  const { expand, isCollapsed } = useContext(CardContext);
   return isCollapsed && cloneElement(children, { onClick: expand });
 };
 const Collapse = ({ children }) => {
-  const { collapse, isCollapsed } = useContext(CollapsableContext);
+  const { collapse, isCollapsed } = useContext(CardContext);
   return !isCollapsed && cloneElement(children, { onClick: collapse });
 };
 
-Collapsable.CardContent = CardContent;
-Collapsable.Expand = Expand;
-Collapsable.Collapse = Collapse;
+Card.CardContent = CardContent;
+Card.Expand = Expand;
+Card.Collapse = Collapse;
 
-export default Collapsable;
+export default Card;

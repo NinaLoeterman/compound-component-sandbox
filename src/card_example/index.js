@@ -1,25 +1,25 @@
-import Collapsable from "./components/Collapsable";
+import Card from "./components/Card";
 import CardItem from "./components/CardItem";
 import content from "./content";
 
 const CardExample = () => {
   return (
     <div>
-      <Collapsable>
-        <Collapsable.CardContent content={content}>
+      <Card>
+        <Card.CardContent content={content}>
           {content.map((item, index) => {
             return <CardItem key={index} item={item} />;
           })}
-        </Collapsable.CardContent>
+        </Card.CardContent>
 
-        <Collapsable.Expand>
+        <Card.Expand>
           <div>show more</div>
-        </Collapsable.Expand>
+        </Card.Expand>
 
-        <Collapsable.Collapse>
+        <Card.Collapse>
           <div>show less</div>
-        </Collapsable.Collapse>
-      </Collapsable>
+        </Card.Collapse>
+      </Card>
     </div>
   );
 };
